@@ -24,5 +24,6 @@ export default function configureStore() {
     )
    sagaMiddleware.run(rootSaga)
    const persistor = persistStore(store)
-    return { store, persistor }
+   return { store, persistor }
+
   }
