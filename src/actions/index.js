@@ -6,3 +6,9 @@ export function fetchData() {
       type: FETCHING_DATA
     }
   }
+
+  export function fetchKecamatan() {
+    return {
+      type: FETCHING_DATA
+    }
+  }

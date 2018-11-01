@@ -7,18 +7,19 @@ import {
     View,Button,Text,TouchableHighlight
   } from 'react-native';
 import { connect } from 'react-redux'
-import fetchData from '../actions'
+import { bindActionCreators } from 'redux'
+import * as fetchData from '../actions'
 import {FETCHING_DATA} from '../contants/constants'
 
 class DashboardScreen extends Component {
   render() {
-      console.log(this.props.fetchData)
+      console.log(this.props)
      
     return (
       <View style={styles.container}>
           <Text style={styles.text}>Redux Examples</Text>
          
-          <TouchableHighlight style={styles.button} onPress={() => this.props.fetchData()}>
+          <TouchableHighlight style={styles.button} onPress={() => this.props.fetchKecamatan()}>
               <Text style={styles.buttonText}>Load Data</Text>
           </TouchableHighlight>
 
@@ -72,11 +73,17 @@ const styles = StyleSheet.create({
     }
   }
   
+  /*
   function mapDispatchToProps (dispatch) {
     return {
       fetchData: () => dispatch({'type':FETCHING_DATA})
     }
   }
+
+  */
+ const mapDispatchToProps = {
+  ...fetchData,
+}
   
   export default connect(
     mapStateToProps,
